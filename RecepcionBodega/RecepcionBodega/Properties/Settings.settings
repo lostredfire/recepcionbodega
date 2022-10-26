@@ -12,7 +12,7 @@
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="color_menu" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">115, 12, 118</Value>
+      <Value Profile="(Default)">90, 13, 29</Value>
     </Setting>
     <Setting Name="color_fuente_menu" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">White</Value>
