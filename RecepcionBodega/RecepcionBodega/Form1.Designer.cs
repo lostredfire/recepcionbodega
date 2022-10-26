@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.eventLog1 = new System.Diagnostics.EventLog();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
             // 
             // Form1
             // 
@@ -37,11 +43,14 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Form1";
             this.Text = "Libro de Registros de Productos Enológicos";
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Diagnostics.EventLog eventLog1;
     }
 }
 
