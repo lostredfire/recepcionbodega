@@ -61,7 +61,7 @@ namespace RecepcionBodega.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("115, 12, 118")]
+        [global::System.Configuration.DefaultSettingValueAttribute("90, 13, 29")]
         public global::System.Drawing.Color color_menu {
             get {
                 return ((global::System.Drawing.Color)(this["color_menu"]));
