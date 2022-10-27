@@ -16,5 +16,30 @@ namespace RecepcionBodega
         {
             InitializeComponent();
         }
+
+        private void btnAnnadirEntrada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAnnadirSalida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAnnadirProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVerProductos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
