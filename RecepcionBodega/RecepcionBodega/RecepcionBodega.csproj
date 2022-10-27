@@ -58,6 +58,12 @@
     <Compile Include="FormAñadirEntrada.Designer.cs">
       <DependentUpon>FormAñadirEntrada.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAñadirSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAñadirSalida.Designer.cs">
+      <DependentUpon>FormAñadirSalida.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVerProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAñadirEntrada.resx">
       <DependentUpon>FormAñadirEntrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAñadirSalida.resx">
+      <DependentUpon>FormAñadirSalida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVerProductos.resx">
       <DependentUpon>FormVerProductos.cs</DependentUpon>
