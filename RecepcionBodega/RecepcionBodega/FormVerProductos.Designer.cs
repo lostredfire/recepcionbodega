@@ -42,15 +42,15 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 162;
+            this.splitContainer1.Size = new System.Drawing.Size(1064, 581);
+            this.splitContainer1.SplitterDistance = 190;
             this.splitContainer1.TabIndex = 0;
             // 
             // FormVerProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1064, 581);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormVerProductos";
             this.Text = "FormVerProductos";
