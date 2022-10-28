@@ -52,10 +52,46 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAñadirEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAñadirEntrada.Designer.cs">
+      <DependentUpon>FormAñadirEntrada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAñadirProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAñadirProductos.Designer.cs">
+      <DependentUpon>FormAñadirProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAñadirSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAñadirSalida.Designer.cs">
+      <DependentUpon>FormAñadirSalida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVerProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVerProductos.Designer.cs">
+      <DependentUpon>FormVerProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAñadirEntrada.resx">
+      <DependentUpon>FormAñadirEntrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAñadirProductos.resx">
+      <DependentUpon>FormAñadirProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAñadirSalida.resx">
+      <DependentUpon>FormAñadirSalida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerProductos.resx">
+      <DependentUpon>FormVerProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
