@@ -1,0 +1,11 @@
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\bin\Debug\RecepcionBodega.exe.config
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\bin\Debug\RecepcionBodega.exe
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\bin\Debug\RecepcionBodega.pdb
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\obj\Debug\RecepcionBodega.csproj.AssemblyReference.cache
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\obj\Debug\RecepcionBodega.csproj.SuggestedBindingRedirects.cache
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\obj\Debug\RecepcionBodega.FormPrincipal.resources
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\obj\Debug\RecepcionBodega.Properties.Resources.resources
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\obj\Debug\RecepcionBodega.csproj.GenerateResource.cache
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\obj\Debug\RecepcionBodega.csproj.CoreCompileInputs.cache
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\obj\Debug\RecepcionBodega.exe
+C:\devSpace\VisualStudio\recepcionbodega\RecepcionBodega\RecepcionBodega\obj\Debug\RecepcionBodega.pdb

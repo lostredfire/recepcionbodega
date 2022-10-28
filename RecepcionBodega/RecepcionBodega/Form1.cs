@@ -15,6 +15,14 @@ namespace RecepcionBodega
         public FormPrincipal()
         {
             InitializeComponent();
+            loadStyle();
+        }
+
+        private void loadStyle()
+        {
+            btnAnnadirEntrada.BackColor = Properties.Settings.Default.color_menu;
+            btnAnnadirEntrada.ForeColor = Properties.Settings.Default.color_fuente_menu;
+            btnAnnadirEntrada.Font = Properties.Settings.Default.fuente_letra;
         }
 
         private void btnAnnadirEntrada_Click(object sender, EventArgs e)
