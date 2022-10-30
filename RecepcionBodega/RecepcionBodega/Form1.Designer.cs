@@ -32,36 +32,36 @@
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnAnnadirEntrada = new System.Windows.Forms.Button();
-            this.btnAnnadirSalida = new System.Windows.Forms.Button();
-            this.btnAnnadirProducto = new System.Windows.Forms.Button();
-            this.btnVerProductos = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblFiltros = new System.Windows.Forms.Label();
-            this.chbEntrada = new System.Windows.Forms.CheckBox();
-            this.chbSalida = new System.Windows.Forms.CheckBox();
-            this.lblProducto = new System.Windows.Forms.Label();
-            this.txbProducto = new System.Windows.Forms.ComboBox();
-            this.lblDesde = new System.Windows.Forms.Label();
-            this.lblHasta = new System.Windows.Forms.Label();
-            this.lblLote = new System.Windows.Forms.Label();
-            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
-            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.ptbLogo2 = new System.Windows.Forms.PictureBox();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnVerProductos = new System.Windows.Forms.Button();
+            this.btnAnnadirProducto = new System.Windows.Forms.Button();
+            this.btnAnnadirSalida = new System.Windows.Forms.Button();
+            this.btnAnnadirEntrada = new System.Windows.Forms.Button();
+            this.rbSalidas = new System.Windows.Forms.RadioButton();
+            this.rbEntradas = new System.Windows.Forms.RadioButton();
             this.txbLote = new System.Windows.Forms.TextBox();
+            this.ptbLogo2 = new System.Windows.Forms.PictureBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.lblLote = new System.Windows.Forms.Label();
+            this.lblHasta = new System.Windows.Forms.Label();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.txbProducto = new System.Windows.Forms.ComboBox();
+            this.lblProducto = new System.Windows.Forms.Label();
+            this.lblFiltros = new System.Windows.Forms.Label();
+            this.dgvTabla = new System.Windows.Forms.DataGridView();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
             this.SuspendLayout();
             // 
             // eventLog1
@@ -81,17 +81,19 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.ptbLogo);
             this.splitContainer1.Panel1.Controls.Add(this.btnSalir);
             this.splitContainer1.Panel1.Controls.Add(this.btnVerProductos);
             this.splitContainer1.Panel1.Controls.Add(this.btnAnnadirProducto);
             this.splitContainer1.Panel1.Controls.Add(this.btnAnnadirSalida);
+            this.splitContainer1.Panel1.Controls.Add(this.ptbLogo2);
             this.splitContainer1.Panel1.Controls.Add(this.btnAnnadirEntrada);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.ptbLogo);
+            this.splitContainer1.Panel2.Controls.Add(this.rbSalidas);
+            this.splitContainer1.Panel2.Controls.Add(this.rbEntradas);
             this.splitContainer1.Panel2.Controls.Add(this.txbLote);
-            this.splitContainer1.Panel2.Controls.Add(this.ptbLogo2);
             this.splitContainer1.Panel2.Controls.Add(this.btnLimpiar);
             this.splitContainer1.Panel2.Controls.Add(this.btnFiltrar);
             this.splitContainer1.Panel2.Controls.Add(this.dtpHasta);
@@ -101,57 +103,27 @@
             this.splitContainer1.Panel2.Controls.Add(this.lblDesde);
             this.splitContainer1.Panel2.Controls.Add(this.txbProducto);
             this.splitContainer1.Panel2.Controls.Add(this.lblProducto);
-            this.splitContainer1.Panel2.Controls.Add(this.chbSalida);
-            this.splitContainer1.Panel2.Controls.Add(this.chbEntrada);
             this.splitContainer1.Panel2.Controls.Add(this.lblFiltros);
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvTabla);
             this.splitContainer1.Panel2.Controls.Add(this.lblTitulo);
             this.splitContainer1.Size = new System.Drawing.Size(1064, 581);
             this.splitContainer1.SplitterDistance = 190;
             this.splitContainer1.TabIndex = 2;
             // 
-            // btnAnnadirEntrada
+            // ptbLogo
             // 
-            this.btnAnnadirEntrada.Location = new System.Drawing.Point(25, 180);
-            this.btnAnnadirEntrada.Name = "btnAnnadirEntrada";
-            this.btnAnnadirEntrada.Size = new System.Drawing.Size(148, 47);
-            this.btnAnnadirEntrada.TabIndex = 0;
-            this.btnAnnadirEntrada.Text = "Añadir Entrada";
-            this.btnAnnadirEntrada.UseVisualStyleBackColor = true;
-            this.btnAnnadirEntrada.Click += new System.EventHandler(this.btnAnnadirEntrada_Click);
-            // 
-            // btnAnnadirSalida
-            // 
-            this.btnAnnadirSalida.Location = new System.Drawing.Point(25, 233);
-            this.btnAnnadirSalida.Name = "btnAnnadirSalida";
-            this.btnAnnadirSalida.Size = new System.Drawing.Size(148, 47);
-            this.btnAnnadirSalida.TabIndex = 1;
-            this.btnAnnadirSalida.Text = "Añadir Salida";
-            this.btnAnnadirSalida.UseVisualStyleBackColor = true;
-            this.btnAnnadirSalida.Click += new System.EventHandler(this.btnAnnadirSalida_Click);
-            // 
-            // btnAnnadirProducto
-            // 
-            this.btnAnnadirProducto.Location = new System.Drawing.Point(25, 286);
-            this.btnAnnadirProducto.Name = "btnAnnadirProducto";
-            this.btnAnnadirProducto.Size = new System.Drawing.Size(148, 47);
-            this.btnAnnadirProducto.TabIndex = 2;
-            this.btnAnnadirProducto.Text = "Añadir Producto";
-            this.btnAnnadirProducto.UseVisualStyleBackColor = true;
-            this.btnAnnadirProducto.Click += new System.EventHandler(this.btnAnnadirProducto_Click);
-            // 
-            // btnVerProductos
-            // 
-            this.btnVerProductos.Location = new System.Drawing.Point(25, 339);
-            this.btnVerProductos.Name = "btnVerProductos";
-            this.btnVerProductos.Size = new System.Drawing.Size(148, 47);
-            this.btnVerProductos.TabIndex = 3;
-            this.btnVerProductos.Text = "Ver Productos";
-            this.btnVerProductos.UseVisualStyleBackColor = true;
-            this.btnVerProductos.Click += new System.EventHandler(this.btnVerProductos_Click);
+            this.ptbLogo.Image = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
+            this.ptbLogo.InitialImage = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
+            this.ptbLogo.Location = new System.Drawing.Point(634, 419);
+            this.ptbLogo.Name = "ptbLogo";
+            this.ptbLogo.Size = new System.Drawing.Size(148, 148);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbLogo.TabIndex = 5;
+            this.ptbLogo.TabStop = false;
             // 
             // btnSalir
             // 
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Location = new System.Drawing.Point(25, 520);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(148, 47);
@@ -160,118 +132,92 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // lblTitulo
+            // btnVerProductos
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(3, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(187, 13);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Entrada/Salida de producto enológico";
+            this.btnVerProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerProductos.Location = new System.Drawing.Point(25, 339);
+            this.btnVerProductos.Name = "btnVerProductos";
+            this.btnVerProductos.Size = new System.Drawing.Size(148, 47);
+            this.btnVerProductos.TabIndex = 3;
+            this.btnVerProductos.Text = "Ver Productos";
+            this.btnVerProductos.UseVisualStyleBackColor = true;
+            this.btnVerProductos.Click += new System.EventHandler(this.btnVerProductos_Click);
             // 
-            // dataGridView1
+            // btnAnnadirProducto
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(539, 536);
-            this.dataGridView1.TabIndex = 1;
+            this.btnAnnadirProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnnadirProducto.Location = new System.Drawing.Point(25, 286);
+            this.btnAnnadirProducto.Name = "btnAnnadirProducto";
+            this.btnAnnadirProducto.Size = new System.Drawing.Size(148, 47);
+            this.btnAnnadirProducto.TabIndex = 2;
+            this.btnAnnadirProducto.Text = "Añadir Producto";
+            this.btnAnnadirProducto.UseVisualStyleBackColor = true;
+            this.btnAnnadirProducto.Click += new System.EventHandler(this.btnAnnadirProducto_Click);
             // 
-            // lblFiltros
+            // btnAnnadirSalida
             // 
-            this.lblFiltros.AutoSize = true;
-            this.lblFiltros.Location = new System.Drawing.Point(575, 9);
-            this.lblFiltros.Name = "lblFiltros";
-            this.lblFiltros.Size = new System.Drawing.Size(37, 13);
-            this.lblFiltros.TabIndex = 2;
-            this.lblFiltros.Text = "Filtros:";
+            this.btnAnnadirSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnnadirSalida.Location = new System.Drawing.Point(25, 233);
+            this.btnAnnadirSalida.Name = "btnAnnadirSalida";
+            this.btnAnnadirSalida.Size = new System.Drawing.Size(148, 47);
+            this.btnAnnadirSalida.TabIndex = 1;
+            this.btnAnnadirSalida.Text = "Añadir Salida";
+            this.btnAnnadirSalida.UseVisualStyleBackColor = true;
+            this.btnAnnadirSalida.Click += new System.EventHandler(this.btnAnnadirSalida_Click);
             // 
-            // chbEntrada
+            // btnAnnadirEntrada
             // 
-            this.chbEntrada.AutoSize = true;
-            this.chbEntrada.Location = new System.Drawing.Point(578, 31);
-            this.chbEntrada.Name = "chbEntrada";
-            this.chbEntrada.Size = new System.Drawing.Size(68, 17);
-            this.chbEntrada.TabIndex = 3;
-            this.chbEntrada.Text = "Entradas";
-            this.chbEntrada.UseVisualStyleBackColor = true;
+            this.btnAnnadirEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnnadirEntrada.Location = new System.Drawing.Point(25, 180);
+            this.btnAnnadirEntrada.Name = "btnAnnadirEntrada";
+            this.btnAnnadirEntrada.Size = new System.Drawing.Size(148, 47);
+            this.btnAnnadirEntrada.TabIndex = 0;
+            this.btnAnnadirEntrada.Text = "Añadir Entrada";
+            this.btnAnnadirEntrada.UseVisualStyleBackColor = true;
+            this.btnAnnadirEntrada.Click += new System.EventHandler(this.btnAnnadirEntrada_Click);
             // 
-            // chbSalida
+            // rbSalidas
             // 
-            this.chbSalida.AutoSize = true;
-            this.chbSalida.Location = new System.Drawing.Point(578, 54);
-            this.chbSalida.Name = "chbSalida";
-            this.chbSalida.Size = new System.Drawing.Size(60, 17);
-            this.chbSalida.TabIndex = 4;
-            this.chbSalida.Text = "Salidas";
-            this.chbSalida.UseVisualStyleBackColor = true;
+            this.rbSalidas.AutoSize = true;
+            this.rbSalidas.Location = new System.Drawing.Point(709, 31);
+            this.rbSalidas.Name = "rbSalidas";
+            this.rbSalidas.Size = new System.Drawing.Size(59, 17);
+            this.rbSalidas.TabIndex = 18;
+            this.rbSalidas.TabStop = true;
+            this.rbSalidas.Text = "Salidas";
+            this.rbSalidas.UseVisualStyleBackColor = true;
+            this.rbSalidas.CheckedChanged += new System.EventHandler(this.rbSalidas_CheckedChanged);
             // 
-            // lblProducto
+            // rbEntradas
             // 
-            this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(575, 111);
-            this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(53, 13);
-            this.lblProducto.TabIndex = 5;
-            this.lblProducto.Text = "Producto:";
+            this.rbEntradas.AutoSize = true;
+            this.rbEntradas.Checked = true;
+            this.rbEntradas.Location = new System.Drawing.Point(578, 31);
+            this.rbEntradas.Name = "rbEntradas";
+            this.rbEntradas.Size = new System.Drawing.Size(67, 17);
+            this.rbEntradas.TabIndex = 17;
+            this.rbEntradas.TabStop = true;
+            this.rbEntradas.Text = "Entradas";
+            this.rbEntradas.UseVisualStyleBackColor = true;
+            this.rbEntradas.CheckedChanged += new System.EventHandler(this.rbEntradas_CheckedChanged);
             // 
-            // txbProducto
+            // txbLote
             // 
-            this.txbProducto.FormattingEnabled = true;
-            this.txbProducto.Location = new System.Drawing.Point(634, 103);
-            this.txbProducto.Name = "txbProducto";
-            this.txbProducto.Size = new System.Drawing.Size(121, 21);
-            this.txbProducto.TabIndex = 6;
+            this.txbLote.Location = new System.Drawing.Point(634, 223);
+            this.txbLote.Name = "txbLote";
+            this.txbLote.Size = new System.Drawing.Size(100, 20);
+            this.txbLote.TabIndex = 16;
             // 
-            // lblDesde
+            // ptbLogo2
             // 
-            this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(575, 148);
-            this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(41, 13);
-            this.lblDesde.TabIndex = 7;
-            this.lblDesde.Text = "Desde:";
-            // 
-            // lblHasta
-            // 
-            this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(575, 187);
-            this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(38, 13);
-            this.lblHasta.TabIndex = 8;
-            this.lblHasta.Text = "Hasta:";
-            // 
-            // lblLote
-            // 
-            this.lblLote.AutoSize = true;
-            this.lblLote.Location = new System.Drawing.Point(576, 230);
-            this.lblLote.Name = "lblLote";
-            this.lblLote.Size = new System.Drawing.Size(31, 13);
-            this.lblLote.TabIndex = 9;
-            this.lblLote.Text = "Lote:";
-            // 
-            // dtpDesde
-            // 
-            this.dtpDesde.Location = new System.Drawing.Point(633, 141);
-            this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(200, 20);
-            this.dtpDesde.TabIndex = 10;
-            // 
-            // dtpHasta
-            // 
-            this.dtpHasta.Location = new System.Drawing.Point(634, 181);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(200, 20);
-            this.dtpHasta.TabIndex = 11;
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Location = new System.Drawing.Point(587, 288);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(121, 35);
-            this.btnFiltrar.TabIndex = 13;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.ptbLogo2.Image = global::RecepcionBodega.Properties.Resources.logoIES;
+            this.ptbLogo2.InitialImage = global::RecepcionBodega.Properties.Resources.logoIES;
+            this.ptbLogo2.Location = new System.Drawing.Point(14, 0);
+            this.ptbLogo2.Name = "ptbLogo2";
+            this.ptbLogo2.Size = new System.Drawing.Size(159, 161);
+            this.ptbLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbLogo2.TabIndex = 15;
+            this.ptbLogo2.TabStop = false;
             // 
             // btnLimpiar
             // 
@@ -282,34 +228,108 @@
             this.btnLimpiar.Text = "Limpiar Filtros";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
-            // ptbLogo2
+            // btnFiltrar
             // 
-            this.ptbLogo2.Image = global::RecepcionBodega.Properties.Resources.logoIES;
-            this.ptbLogo2.InitialImage = global::RecepcionBodega.Properties.Resources.logoIES;
-            this.ptbLogo2.Location = new System.Drawing.Point(644, 417);
-            this.ptbLogo2.Name = "ptbLogo2";
-            this.ptbLogo2.Size = new System.Drawing.Size(150, 150);
-            this.ptbLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbLogo2.TabIndex = 15;
-            this.ptbLogo2.TabStop = false;
+            this.btnFiltrar.Location = new System.Drawing.Point(587, 288);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(121, 35);
+            this.btnFiltrar.TabIndex = 13;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
             // 
-            // ptbLogo
+            // dtpHasta
             // 
-            this.ptbLogo.Image = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
-            this.ptbLogo.InitialImage = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
-            this.ptbLogo.Location = new System.Drawing.Point(25, 13);
-            this.ptbLogo.Name = "ptbLogo";
-            this.ptbLogo.Size = new System.Drawing.Size(148, 148);
-            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbLogo.TabIndex = 5;
-            this.ptbLogo.TabStop = false;
+            this.dtpHasta.Location = new System.Drawing.Point(634, 181);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(200, 20);
+            this.dtpHasta.TabIndex = 11;
             // 
-            // txbLote
+            // dtpDesde
             // 
-            this.txbLote.Location = new System.Drawing.Point(634, 223);
-            this.txbLote.Name = "txbLote";
-            this.txbLote.Size = new System.Drawing.Size(100, 20);
-            this.txbLote.TabIndex = 16;
+            this.dtpDesde.Location = new System.Drawing.Point(633, 141);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(200, 20);
+            this.dtpDesde.TabIndex = 10;
+            // 
+            // lblLote
+            // 
+            this.lblLote.AutoSize = true;
+            this.lblLote.Location = new System.Drawing.Point(576, 230);
+            this.lblLote.Name = "lblLote";
+            this.lblLote.Size = new System.Drawing.Size(31, 13);
+            this.lblLote.TabIndex = 9;
+            this.lblLote.Text = "Lote:";
+            // 
+            // lblHasta
+            // 
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(575, 187);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(38, 13);
+            this.lblHasta.TabIndex = 8;
+            this.lblHasta.Text = "Hasta:";
+            // 
+            // lblDesde
+            // 
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(575, 148);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(41, 13);
+            this.lblDesde.TabIndex = 7;
+            this.lblDesde.Text = "Desde:";
+            // 
+            // txbProducto
+            // 
+            this.txbProducto.FormattingEnabled = true;
+            this.txbProducto.Location = new System.Drawing.Point(634, 103);
+            this.txbProducto.Name = "txbProducto";
+            this.txbProducto.Size = new System.Drawing.Size(121, 21);
+            this.txbProducto.TabIndex = 6;
+            // 
+            // lblProducto
+            // 
+            this.lblProducto.AutoSize = true;
+            this.lblProducto.Location = new System.Drawing.Point(575, 111);
+            this.lblProducto.Name = "lblProducto";
+            this.lblProducto.Size = new System.Drawing.Size(53, 13);
+            this.lblProducto.TabIndex = 5;
+            this.lblProducto.Text = "Producto:";
+            // 
+            // lblFiltros
+            // 
+            this.lblFiltros.AutoSize = true;
+            this.lblFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltros.Location = new System.Drawing.Point(576, 70);
+            this.lblFiltros.Name = "lblFiltros";
+            this.lblFiltros.Size = new System.Drawing.Size(50, 17);
+            this.lblFiltros.TabIndex = 2;
+            this.lblFiltros.Text = "Filtros:";
+            // 
+            // dgvTabla
+            // 
+            this.dgvTabla.AllowUserToAddRows = false;
+            this.dgvTabla.AllowUserToDeleteRows = false;
+            this.dgvTabla.AllowUserToResizeColumns = false;
+            this.dgvTabla.AllowUserToResizeRows = false;
+            this.dgvTabla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTabla.Location = new System.Drawing.Point(6, 31);
+            this.dgvTabla.MultiSelect = false;
+            this.dgvTabla.Name = "dgvTabla";
+            this.dgvTabla.ReadOnly = true;
+            this.dgvTabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTabla.Size = new System.Drawing.Size(539, 536);
+            this.dgvTabla.TabIndex = 1;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(175, 8);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(57, 17);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "lblTitulo";
             // 
             // FormPrincipal
             // 
@@ -319,15 +339,16 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormPrincipal";
             this.Text = "Libro de Registros de Productos Enológicos";
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -343,7 +364,7 @@
         private System.Windows.Forms.Button btnAnnadirEntrada;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTabla;
         private System.Windows.Forms.PictureBox ptbLogo;
         private System.Windows.Forms.TextBox txbLote;
         private System.Windows.Forms.PictureBox ptbLogo2;
@@ -356,9 +377,9 @@
         private System.Windows.Forms.Label lblDesde;
         private System.Windows.Forms.ComboBox txbProducto;
         private System.Windows.Forms.Label lblProducto;
-        private System.Windows.Forms.CheckBox chbSalida;
-        private System.Windows.Forms.CheckBox chbEntrada;
         private System.Windows.Forms.Label lblFiltros;
+        private System.Windows.Forms.RadioButton rbSalidas;
+        private System.Windows.Forms.RadioButton rbEntradas;
     }
 }
 
