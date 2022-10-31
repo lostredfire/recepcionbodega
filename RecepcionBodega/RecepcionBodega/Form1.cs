@@ -28,7 +28,9 @@ namespace RecepcionBodega
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             CargarTablaEntradas();
+            CargarCombo();
             lblTitulo.Text = "Entradas de Productos Enológicos";
+            dtpDesde.Value = new DateTime(2022, 9, 1);
         }
         /*
          * Este metodo se encarga de cargar el estilo a la aplicacion
@@ -70,7 +72,9 @@ namespace RecepcionBodega
             try
             {
                 dbconn.Open();
-                string consulta = "select id_producto_entrada, id_producto, fecha_entrada, lote, albaran, proveedor, fecha_caducidad, cantidad from producto_entrada";
+                string consulta = "select e.id_producto_entrada, e.id_producto, p.nombre, e.fecha_entrada, e.lote, e.albaran, e.proveedor, e.fecha_caducidad, e.cantidad " +
+                    "from producto_entrada e, producto p " +
+                    "where e.id_producto = p.id_producto";
                 MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -95,13 +99,20 @@ namespace RecepcionBodega
                 dbconn.Close();
             }
         }
-
+        /*
+         * El método cargarTablaEntradas se encarga de cargar los registros de salidas en el DataGridView nada mas se ejecute la aplicacion
+         * 
+         * Método realizado por Álvaro
+         * 
+         */
         private void CargarTablaSalidas()
         {
             try
             {
                 dbconn.Open();
-                string consulta = "select id_producto_salida, id_producto, fecha_salida, lote, cantidad, destino, observaciones from producto_salida";
+                string consulta = "select s.id_producto_salida, s.id_producto, p.nombre, s.fecha_salida, s.lote, s.cantidad, s.destino, s.observaciones " +
+                    "from producto_salida s, producto p " +
+                    "where s.id_producto = p.id_producto;";
                 MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -115,11 +126,11 @@ namespace RecepcionBodega
             }
             catch (MySqlException e)
             {
-                MessageBox.Show("Error con la base de datos" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error con la base de datos\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error inesperado" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error inesperado\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -127,9 +138,49 @@ namespace RecepcionBodega
             }
         }
 
+        /*
+         * El metodo CargarCombo se encarga de cargar el el combobox con el nombre de los productos
+         * Tambien tiene la opcion de <Todos>
+         * 
+         * Método realizado por Álvaro
+         * 
+         */
         private void CargarCombo()
         {
+            try
+            {
+                dbconn.Open();
+                string consulta = "select id_producto, nombre from producto";
+                MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
 
+                while (dataReader.Read())
+                {
+                    cmbProducto.Items.Add(new
+                    {
+                        id_producto = dataReader["id_producto"].ToString(),
+                        nombre = dataReader["nombre"].ToString()
+                    });
+                }
+                cmbProducto.ValueMember = "id_producto";
+                cmbProducto.DisplayMember = "Nombre";
+
+                cmbProducto.Items.Insert(0, new {id_producto = 0, nombre = "<Todos>"});
+
+                dataReader.Close();
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error con la base de datos\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error inesperado\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                dbconn.Close();
+            }
         }
 
         private void btnAnnadirEntrada_Click(object sender, EventArgs e)
@@ -180,6 +231,74 @@ namespace RecepcionBodega
             lblTitulo.Text = "Salidas de Productos Enológicos";
         }
 
+        
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            filtrarTabla();
+            
+        }
+
+        private void filtrarTabla()
+        {
+            try
+            {
+                dbconn.Open();
+                if (rbEntradas.Checked)
+                {
+                    string consulta = "select e.id_producto_entrada, e.id_producto, p.nombre, e.fecha_entrada, e.lote, e.albaran, e.proveedor, e.fecha_caducidad, e.cantidad " +
+                    "from producto_entrada e, producto p " +
+                    "where e.id_producto = p.id_producto";
+                    if (cmbProducto.SelectedValue.ToString().Equals("0"))
+                    {
+                        consulta += "and e.fecha_entrada >= " ;
+                    }
+                    else
+                    {
+                        consulta += " and e.id_producto = " + cmbProducto.SelectedValue.ToString();
+                    }
+                }
+
+                if (rbSalidas.Checked)
+                {
+                    string consulta = "select s.id_producto_salida, s.id_producto, p.nombre, s.fecha_salida, s.lote, s.cantidad, s.destino, s.observaciones " +
+                    "from producto_salida s, producto p " +
+                    "where s.id_producto = p.id_producto;";
+
+                    if (cmbProducto.SelectedValue.ToString().Equals("0"))
+                    {
+
+                    }
+                    else
+                    {
+                        consulta += " and e.id_producto = " + cmbProducto.SelectedValue.ToString();
+                    }
+                }
+                
+                
+                MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvTabla.DataSource = dt;
+
+                dgvTabla.Columns["id_producto_entrada"].Visible = false;
+                dgvTabla.Columns["id_producto"].Visible = false;
+
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error con la base de datos" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error inesperado" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                dbconn.Close();
+            }
+        }
         
     }
 }

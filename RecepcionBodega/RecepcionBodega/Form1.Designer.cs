@@ -32,16 +32,16 @@
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnVerProductos = new System.Windows.Forms.Button();
             this.btnAnnadirProducto = new System.Windows.Forms.Button();
             this.btnAnnadirSalida = new System.Windows.Forms.Button();
+            this.ptbLogo2 = new System.Windows.Forms.PictureBox();
             this.btnAnnadirEntrada = new System.Windows.Forms.Button();
+            this.ptbLogo = new System.Windows.Forms.PictureBox();
             this.rbSalidas = new System.Windows.Forms.RadioButton();
             this.rbEntradas = new System.Windows.Forms.RadioButton();
             this.txbLote = new System.Windows.Forms.TextBox();
-            this.ptbLogo2 = new System.Windows.Forms.PictureBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
@@ -49,7 +49,7 @@
             this.lblLote = new System.Windows.Forms.Label();
             this.lblHasta = new System.Windows.Forms.Label();
             this.lblDesde = new System.Windows.Forms.Label();
-            this.txbProducto = new System.Windows.Forms.ComboBox();
+            this.cmbProducto = new System.Windows.Forms.ComboBox();
             this.lblProducto = new System.Windows.Forms.Label();
             this.lblFiltros = new System.Windows.Forms.Label();
             this.dgvTabla = new System.Windows.Forms.DataGridView();
@@ -59,8 +59,8 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +101,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.lblLote);
             this.splitContainer1.Panel2.Controls.Add(this.lblHasta);
             this.splitContainer1.Panel2.Controls.Add(this.lblDesde);
-            this.splitContainer1.Panel2.Controls.Add(this.txbProducto);
+            this.splitContainer1.Panel2.Controls.Add(this.cmbProducto);
             this.splitContainer1.Panel2.Controls.Add(this.lblProducto);
             this.splitContainer1.Panel2.Controls.Add(this.lblFiltros);
             this.splitContainer1.Panel2.Controls.Add(this.dgvTabla);
@@ -109,17 +109,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(1064, 581);
             this.splitContainer1.SplitterDistance = 190;
             this.splitContainer1.TabIndex = 2;
-            // 
-            // ptbLogo
-            // 
-            this.ptbLogo.Image = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
-            this.ptbLogo.InitialImage = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
-            this.ptbLogo.Location = new System.Drawing.Point(634, 419);
-            this.ptbLogo.Name = "ptbLogo";
-            this.ptbLogo.Size = new System.Drawing.Size(148, 148);
-            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbLogo.TabIndex = 5;
-            this.ptbLogo.TabStop = false;
             // 
             // btnSalir
             // 
@@ -165,6 +154,17 @@
             this.btnAnnadirSalida.UseVisualStyleBackColor = true;
             this.btnAnnadirSalida.Click += new System.EventHandler(this.btnAnnadirSalida_Click);
             // 
+            // ptbLogo2
+            // 
+            this.ptbLogo2.Image = global::RecepcionBodega.Properties.Resources.logoIES;
+            this.ptbLogo2.InitialImage = global::RecepcionBodega.Properties.Resources.logoIES;
+            this.ptbLogo2.Location = new System.Drawing.Point(14, 8);
+            this.ptbLogo2.Name = "ptbLogo2";
+            this.ptbLogo2.Size = new System.Drawing.Size(159, 161);
+            this.ptbLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbLogo2.TabIndex = 15;
+            this.ptbLogo2.TabStop = false;
+            // 
             // btnAnnadirEntrada
             // 
             this.btnAnnadirEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -175,6 +175,17 @@
             this.btnAnnadirEntrada.Text = "Añadir Entrada";
             this.btnAnnadirEntrada.UseVisualStyleBackColor = true;
             this.btnAnnadirEntrada.Click += new System.EventHandler(this.btnAnnadirEntrada_Click);
+            // 
+            // ptbLogo
+            // 
+            this.ptbLogo.Image = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
+            this.ptbLogo.InitialImage = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
+            this.ptbLogo.Location = new System.Drawing.Point(634, 419);
+            this.ptbLogo.Name = "ptbLogo";
+            this.ptbLogo.Size = new System.Drawing.Size(148, 148);
+            this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbLogo.TabIndex = 5;
+            this.ptbLogo.TabStop = false;
             // 
             // rbSalidas
             // 
@@ -208,17 +219,6 @@
             this.txbLote.Size = new System.Drawing.Size(100, 20);
             this.txbLote.TabIndex = 16;
             // 
-            // ptbLogo2
-            // 
-            this.ptbLogo2.Image = global::RecepcionBodega.Properties.Resources.logoIES;
-            this.ptbLogo2.InitialImage = global::RecepcionBodega.Properties.Resources.logoIES;
-            this.ptbLogo2.Location = new System.Drawing.Point(14, 0);
-            this.ptbLogo2.Name = "ptbLogo2";
-            this.ptbLogo2.Size = new System.Drawing.Size(159, 161);
-            this.ptbLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbLogo2.TabIndex = 15;
-            this.ptbLogo2.TabStop = false;
-            // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(728, 288);
@@ -236,6 +236,7 @@
             this.btnFiltrar.TabIndex = 13;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // dtpHasta
             // 
@@ -278,13 +279,13 @@
             this.lblDesde.TabIndex = 7;
             this.lblDesde.Text = "Desde:";
             // 
-            // txbProducto
+            // cmbProducto
             // 
-            this.txbProducto.FormattingEnabled = true;
-            this.txbProducto.Location = new System.Drawing.Point(634, 103);
-            this.txbProducto.Name = "txbProducto";
-            this.txbProducto.Size = new System.Drawing.Size(121, 21);
-            this.txbProducto.TabIndex = 6;
+            this.cmbProducto.FormattingEnabled = true;
+            this.cmbProducto.Location = new System.Drawing.Point(634, 103);
+            this.cmbProducto.Name = "cmbProducto";
+            this.cmbProducto.Size = new System.Drawing.Size(121, 21);
+            this.cmbProducto.TabIndex = 6;
             // 
             // lblProducto
             // 
@@ -346,8 +347,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).EndInit();
             this.ResumeLayout(false);
 
@@ -375,7 +376,7 @@
         private System.Windows.Forms.Label lblLote;
         private System.Windows.Forms.Label lblHasta;
         private System.Windows.Forms.Label lblDesde;
-        private System.Windows.Forms.ComboBox txbProducto;
+        private System.Windows.Forms.ComboBox cmbProducto;
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.Label lblFiltros;
         private System.Windows.Forms.RadioButton rbSalidas;
