@@ -163,7 +163,7 @@ namespace RecepcionBodega
                     });
                 }
                 cmbProducto.ValueMember = "id_producto";
-                cmbProducto.DisplayMember = "Nombre";
+                cmbProducto.DisplayMember = "nombre";
 
                 cmbProducto.Items.Insert(0, new {id_producto = 0, nombre = "<Todos>"});
 
@@ -234,11 +234,11 @@ namespace RecepcionBodega
         
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            filtrarTabla();
+            filtrarTabla(cmbProducto.Text, dtpDesde.Value.ToString(), dtpHasta.Value.ToString(), txbLote.Text);
             
         }
 
-        private void filtrarTabla()
+        private void filtrarTabla(string producto, string fechaDesde, string fechaHasta, string lote)
         {
             try
             {
@@ -248,13 +248,63 @@ namespace RecepcionBodega
                     string consulta = "select e.id_producto_entrada, e.id_producto, p.nombre, e.fecha_entrada, e.lote, e.albaran, e.proveedor, e.fecha_caducidad, e.cantidad " +
                     "from producto_entrada e, producto p " +
                     "where e.id_producto = p.id_producto";
-                    if (cmbProducto.SelectedValue.ToString().Equals("0"))
+                    if (producto.Equals("<Todos>"))
                     {
-                        consulta += "and e.fecha_entrada >= " ;
+                        consulta += " and e.fecha_entrada >= " + fechaDesde + " and e.fecha_entrada < " + fechaHasta;
+                        if (!lote.Equals(""))
+                        {
+                            consulta += " and e.lote = " + lote;
+
+                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvTabla.DataSource = dt;
+
+                            dgvTabla.Columns["id_producto_entrada"].Visible = false;
+                            dgvTabla.Columns["id_producto"].Visible = false;
+                        }
+                        else
+                        {
+                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvTabla.DataSource = dt;
+
+                            dgvTabla.Columns["id_producto_entrada"].Visible = false;
+                            dgvTabla.Columns["id_producto"].Visible = false;
+                        }
                     }
                     else
                     {
-                        consulta += " and e.id_producto = " + cmbProducto.SelectedValue.ToString();
+                        consulta += " and e.id_producto = " + producto;
+                        consulta += " and e.fecha_entrada >= " + fechaDesde + " and e.fecha_entrada < " + fechaHasta;
+
+                        if (!lote.Equals(""))
+                        {
+                            consulta += " and e.lote = " + lote;
+
+                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvTabla.DataSource = dt;
+
+                            dgvTabla.Columns["id_producto_entrada"].Visible = false;
+                            dgvTabla.Columns["id_producto"].Visible = false;
+                        }
+                        else
+                        {
+                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvTabla.DataSource = dt;
+
+                            dgvTabla.Columns["id_producto_entrada"].Visible = false;
+                            dgvTabla.Columns["id_producto"].Visible = false;
+                        }
                     }
                 }
 
@@ -264,25 +314,68 @@ namespace RecepcionBodega
                     "from producto_salida s, producto p " +
                     "where s.id_producto = p.id_producto;";
 
-                    if (cmbProducto.SelectedValue.ToString().Equals("0"))
+                    if (producto.Equals("<Todos>"))
                     {
+                        consulta += " and s.fecha_salida >= " + fechaDesde + " and s.fecha_salida < " + fechaHasta;
+                        if (!lote.Equals(""))
+                        {
+                            consulta += " and s.lote = " + lote;
 
+                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvTabla.DataSource = dt;
+
+                            dgvTabla.Columns["id_producto_salida"].Visible = false;
+                            dgvTabla.Columns["id_producto"].Visible = false;
+                        }
+                        else
+                        {
+                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvTabla.DataSource = dt;
+
+                            dgvTabla.Columns["id_producto_salida"].Visible = false;
+                            dgvTabla.Columns["id_producto"].Visible = false;
+                        }
                     }
                     else
                     {
-                        consulta += " and e.id_producto = " + cmbProducto.SelectedValue.ToString();
+                        consulta += " and s.id_producto = " + producto;
+                        consulta += " and s.fecha_salida >= " + fechaDesde + " and s.fecha_salida < " + fechaHasta;
+
+                        if (!lote.Equals(""))
+                        {
+                            consulta += " and s.lote = " + lote;
+
+                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvTabla.DataSource = dt;
+
+                            dgvTabla.Columns["id_producto_salida"].Visible = false;
+                            dgvTabla.Columns["id_producto"].Visible = false;
+                        }
+                        else
+                        {
+                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvTabla.DataSource = dt;
+
+                            dgvTabla.Columns["id_producto_salida"].Visible = false;
+                            dgvTabla.Columns["id_producto"].Visible = false;
+                        }
                     }
                 }
                 
                 
-                MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgvTabla.DataSource = dt;
-
-                dgvTabla.Columns["id_producto_entrada"].Visible = false;
-                dgvTabla.Columns["id_producto"].Visible = false;
+                
 
 
             }
