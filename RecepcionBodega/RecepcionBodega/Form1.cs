@@ -1,8 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,7 +29,7 @@ namespace RecepcionBodega
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            CargarTablaEntradas();
+            //CargarTablaEntradas();
             CargarCombo();
             lblTitulo.Text = "Entradas de Productos Enológicos";
             dtpDesde.Value = new DateTime(2022, 9, 1);
@@ -67,7 +69,44 @@ namespace RecepcionBodega
          * Método realizado por Álvaro
          * 
          */
-        private void CargarTablaEntradas()
+
+        private void CargarTablas()
+        {
+
+            try
+            {
+
+                var arrRegistros = new ArrayList();
+
+                dbconn.Open();
+                string consulta = "";
+                MySqlCommand command = new MySqlCommand(consulta, dbconn);
+                MySqlDataReader result = command.ExecuteReader();
+
+                while (result.Read())
+                {
+                    Registro e = new Registro(idProducto, fechaTramite, lote, albaran, proveedor, fechaCaducidad, cantidad);
+                    arrRegistros.Add(e);
+                    //id_producto = dataReader["id_producto"].ToString(),
+                }
+
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show("Error con la base de datos\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error inesperado\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                dbconn.Close();
+            }
+
+        }
+
+        /*private void CargarTablaEntradas()
         {
             try
             {
@@ -98,14 +137,14 @@ namespace RecepcionBodega
             {
                 dbconn.Close();
             }
-        }
+        }*/
         /*
          * El método cargarTablaEntradas se encarga de cargar los registros de salidas en el DataGridView nada mas se ejecute la aplicacion
          * 
          * Método realizado por Álvaro
          * 
          */
-        private void CargarTablaSalidas()
+        /*private void CargarTablaSalidas()
         {
             try
             {
@@ -136,7 +175,7 @@ namespace RecepcionBodega
             {
                 dbconn.Close();
             }
-        }
+        }*/
 
         /*
          * El metodo CargarCombo se encarga de cargar el el combobox con el nombre de los productos
