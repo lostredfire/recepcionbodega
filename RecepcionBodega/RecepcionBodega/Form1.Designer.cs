@@ -39,8 +39,6 @@
             this.ptbLogo2 = new System.Windows.Forms.PictureBox();
             this.btnAnnadirEntrada = new System.Windows.Forms.Button();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
-            this.rbSalidas = new System.Windows.Forms.RadioButton();
-            this.rbEntradas = new System.Windows.Forms.RadioButton();
             this.txbLote = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
@@ -91,8 +89,6 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.ptbLogo);
-            this.splitContainer1.Panel2.Controls.Add(this.rbSalidas);
-            this.splitContainer1.Panel2.Controls.Add(this.rbEntradas);
             this.splitContainer1.Panel2.Controls.Add(this.txbLote);
             this.splitContainer1.Panel2.Controls.Add(this.btnLimpiar);
             this.splitContainer1.Panel2.Controls.Add(this.btnFiltrar);
@@ -106,8 +102,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.lblFiltros);
             this.splitContainer1.Panel2.Controls.Add(this.dgvTabla);
             this.splitContainer1.Panel2.Controls.Add(this.lblTitulo);
-            this.splitContainer1.Size = new System.Drawing.Size(1064, 581);
-            this.splitContainer1.SplitterDistance = 190;
+            this.splitContainer1.Size = new System.Drawing.Size(1291, 744);
+            this.splitContainer1.SplitterDistance = 230;
             this.splitContainer1.TabIndex = 2;
             // 
             // btnSalir
@@ -180,57 +176,33 @@
             // 
             this.ptbLogo.Image = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
             this.ptbLogo.InitialImage = global::RecepcionBodega.Properties.Resources.logoDptoIndAli;
-            this.ptbLogo.Location = new System.Drawing.Point(634, 419);
+            this.ptbLogo.Location = new System.Drawing.Point(842, 563);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(148, 148);
             this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 5;
             this.ptbLogo.TabStop = false;
             // 
-            // rbSalidas
-            // 
-            this.rbSalidas.AutoSize = true;
-            this.rbSalidas.Location = new System.Drawing.Point(709, 31);
-            this.rbSalidas.Name = "rbSalidas";
-            this.rbSalidas.Size = new System.Drawing.Size(59, 17);
-            this.rbSalidas.TabIndex = 18;
-            this.rbSalidas.TabStop = true;
-            this.rbSalidas.Text = "Salidas";
-            this.rbSalidas.UseVisualStyleBackColor = true;
-            this.rbSalidas.CheckedChanged += new System.EventHandler(this.rbSalidas_CheckedChanged);
-            // 
-            // rbEntradas
-            // 
-            this.rbEntradas.AutoSize = true;
-            this.rbEntradas.Checked = true;
-            this.rbEntradas.Location = new System.Drawing.Point(578, 31);
-            this.rbEntradas.Name = "rbEntradas";
-            this.rbEntradas.Size = new System.Drawing.Size(67, 17);
-            this.rbEntradas.TabIndex = 17;
-            this.rbEntradas.TabStop = true;
-            this.rbEntradas.Text = "Entradas";
-            this.rbEntradas.UseVisualStyleBackColor = true;
-            this.rbEntradas.CheckedChanged += new System.EventHandler(this.rbEntradas_CheckedChanged);
-            // 
             // txbLote
             // 
-            this.txbLote.Location = new System.Drawing.Point(634, 223);
+            this.txbLote.Location = new System.Drawing.Point(845, 190);
             this.txbLote.Name = "txbLote";
             this.txbLote.Size = new System.Drawing.Size(100, 20);
             this.txbLote.TabIndex = 16;
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(728, 288);
+            this.btnLimpiar.Location = new System.Drawing.Point(924, 507);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(121, 35);
             this.btnLimpiar.TabIndex = 14;
             this.btnLimpiar.Text = "Limpiar Filtros";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(587, 288);
+            this.btnFiltrar.Location = new System.Drawing.Point(797, 507);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(121, 35);
             this.btnFiltrar.TabIndex = 13;
@@ -240,14 +212,14 @@
             // 
             // dtpHasta
             // 
-            this.dtpHasta.Location = new System.Drawing.Point(634, 181);
+            this.dtpHasta.Location = new System.Drawing.Point(845, 150);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpHasta.TabIndex = 11;
             // 
             // dtpDesde
             // 
-            this.dtpDesde.Location = new System.Drawing.Point(633, 141);
+            this.dtpDesde.Location = new System.Drawing.Point(845, 102);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpDesde.TabIndex = 10;
@@ -255,7 +227,7 @@
             // lblLote
             // 
             this.lblLote.AutoSize = true;
-            this.lblLote.Location = new System.Drawing.Point(576, 230);
+            this.lblLote.Location = new System.Drawing.Point(798, 197);
             this.lblLote.Name = "lblLote";
             this.lblLote.Size = new System.Drawing.Size(31, 13);
             this.lblLote.TabIndex = 9;
@@ -264,7 +236,7 @@
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(575, 187);
+            this.lblHasta.Location = new System.Drawing.Point(794, 156);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(38, 13);
             this.lblHasta.TabIndex = 8;
@@ -273,7 +245,7 @@
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(575, 148);
+            this.lblDesde.Location = new System.Drawing.Point(788, 109);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(41, 13);
             this.lblDesde.TabIndex = 7;
@@ -282,7 +254,7 @@
             // cmbProducto
             // 
             this.cmbProducto.FormattingEnabled = true;
-            this.cmbProducto.Location = new System.Drawing.Point(634, 103);
+            this.cmbProducto.Location = new System.Drawing.Point(845, 63);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(121, 21);
             this.cmbProducto.TabIndex = 6;
@@ -290,7 +262,7 @@
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(575, 111);
+            this.lblProducto.Location = new System.Drawing.Point(779, 63);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(53, 13);
             this.lblProducto.TabIndex = 5;
@@ -300,7 +272,7 @@
             // 
             this.lblFiltros.AutoSize = true;
             this.lblFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltros.Location = new System.Drawing.Point(576, 70);
+            this.lblFiltros.Location = new System.Drawing.Point(779, 30);
             this.lblFiltros.Name = "lblFiltros";
             this.lblFiltros.Size = new System.Drawing.Size(50, 17);
             this.lblFiltros.TabIndex = 2;
@@ -319,14 +291,15 @@
             this.dgvTabla.Name = "dgvTabla";
             this.dgvTabla.ReadOnly = true;
             this.dgvTabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTabla.Size = new System.Drawing.Size(539, 536);
+            this.dgvTabla.Size = new System.Drawing.Size(755, 681);
             this.dgvTabla.TabIndex = 1;
+            this.dgvTabla.Sorted += new System.EventHandler(this.dgvTabla_Sorted);
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(175, 8);
+            this.lblTitulo.Location = new System.Drawing.Point(328, 8);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(57, 17);
             this.lblTitulo.TabIndex = 0;
@@ -336,7 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 581);
+            this.ClientSize = new System.Drawing.Size(1291, 744);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormPrincipal";
             this.Text = "Libro de Registros de Productos Enológicos";
@@ -379,8 +352,6 @@
         private System.Windows.Forms.ComboBox cmbProducto;
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.Label lblFiltros;
-        private System.Windows.Forms.RadioButton rbSalidas;
-        private System.Windows.Forms.RadioButton rbEntradas;
     }
 }
 

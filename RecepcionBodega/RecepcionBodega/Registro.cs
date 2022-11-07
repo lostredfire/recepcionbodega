@@ -11,7 +11,8 @@ namespace RecepcionBodega {
     internal class Registro
     {
 
-        private int idProducto; //comun
+        private string idProducto; //comun
+        private string nombreProducto;
         private DateTime fechaTramite; //comun
         private String lote; //comun
         private String albaran;
@@ -22,9 +23,10 @@ namespace RecepcionBodega {
         private String obsevaciones;
 
         // Constructor entradas
-        public Registro(int idProducto, DateTime fechaTramite, String lote, String albaran, String proveedor, DateTime fechaCaducidad, int cantidad)
+        public Registro(string idProducto, string nombre, DateTime fechaTramite, String lote, String albaran, String proveedor, DateTime fechaCaducidad, int cantidad)
         {
             this.idProducto = idProducto;
+            this.nombreProducto = nombre;   
             this.fechaTramite = fechaTramite;
             this.lote = lote;
             this.albaran = albaran;
@@ -36,20 +38,21 @@ namespace RecepcionBodega {
         }
 
         // Constructor salidas
-        public Registro(int idProducto, DateTime fechaTramite, String lote, DateTime fechaCaducidad, int cantidad, String destino, String observaciones)
+        public Registro(string idProducto, string nombreProducto, DateTime fechaTramite, String lote, int cantidad, String destino, String observaciones)
         {
             this.idProducto = idProducto;
+            this.nombreProducto = nombreProducto;   
             this.fechaTramite = fechaTramite;
             this.lote = lote;
             this.albaran = "";
             this.proveedor = "";
-            this.fechaCaducidad = fechaCaducidad;
+            this.fechaCaducidad = DateTime.Now;
             this.cantidad = cantidad;
             this.destino = destino;
             this.obsevaciones = observaciones;
         }
 
-        public int IdProducto { get => idProducto; set => idProducto = value; }
+        public string IdProducto { get => idProducto; set => idProducto = value; }
         public DateTime FechaTramite { get => fechaTramite; set => fechaTramite = value; }
         public string Lote { get => lote; set => lote = value; }
         public string Albaran { get => albaran; set => albaran = value; }
