@@ -192,12 +192,16 @@ namespace RecepcionBodega
 
         private void btnAnnadirEntrada_Click(object sender, EventArgs e)
         {
-
+            //Silvia
+            FormAñadirEntrada formañadirentrada = new FormAñadirEntrada();
+            formañadirentrada.ShowDialog();
         }
 
         private void btnAnnadirSalida_Click(object sender, EventArgs e)
         {
-
+            //Silvia
+            FormAñadirSalida formañadirsalida = new FormAñadirSalida();
+            formañadirsalida.ShowDialog();
         }
 
         private void btnAnnadirProducto_Click(object sender, EventArgs e)
