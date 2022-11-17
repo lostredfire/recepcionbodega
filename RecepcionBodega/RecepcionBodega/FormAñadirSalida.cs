@@ -148,6 +148,7 @@ namespace RecepcionBodega
                 {
                     InsertarFormulario();
                     MessageBox.Show("Registros introducidos correctamente.", "Inserción Entrada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    btnAceptar.DialogResult = DialogResult.OK;
                     Limpiar();
                 }
                 catch (Exception ex)

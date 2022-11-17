@@ -68,12 +68,12 @@ namespace RecepcionBodega
             }
             catch (MySqlException e)
             {
-                MessageBox.Show("Error con la base de datos 2\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error con la base de datos \n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dbconn.Close();
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error inesperado 2\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error inesperado \n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dbconn.Close();
             }
            
@@ -149,6 +149,7 @@ namespace RecepcionBodega
                 {
                     InsertarFormulario();
                     MessageBox.Show("Registros introducidos correctamente.", "Inserción Entrada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    btnAceptar.DialogResult = DialogResult.OK;
                     Limpiar();
                 }
                 catch (Exception ex)
