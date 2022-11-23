@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Forms;
 
 namespace RecepcionBodega
 {
+    // Formulario realizado por Juan
     public partial class FormVerProductos : Form
     {
         MySqlConnection dbconn = null;
@@ -24,6 +26,9 @@ namespace RecepcionBodega
         private void FormVerProductos_Load(object sender, EventArgs e)
         {
             cargarProductos();
+            lblNombre.Text = "";
+            lblStockUnidad.Text = "";
+            LoadStyle();
         }
 
         private void cargarProductos()
@@ -55,6 +60,50 @@ namespace RecepcionBodega
             {
                 dbconn.Close();
             }
+        }
+
+        private void dgvTabla_SelectionChanged(object sender, EventArgs e)
+        {
+            lblNombre.Text = dgvTabla.CurrentRow.Cells["nombre"].Value.ToString();
+            lblStockUnidad.Text = dgvTabla.CurrentRow.Cells["stock"].Value.ToString() + " " + dgvTabla.CurrentRow.Cells["unidad"].Value.ToString();
+
+            try
+            {
+                byte[] img = (byte[])dgvTabla.CurrentRow.Cells["imagen"].Value;
+                MemoryStream ms = new MemoryStream(img);
+                ptbImgProducto.Image = Image.FromStream(ms);
+
+            }
+            catch (Exception ex)
+            {
+                string dir = Path.GetDirectoryName(Application.ExecutablePath);
+                string filename = Path.Combine(dir, @"..\..\img\nofotos.png");
+                ptbImgProducto.Image = Image.FromFile(filename);
+            }
+        }
+
+        // Funcion reutilizada del formulario principal realizada por Antonio
+        private void LoadStyle()
+        {
+            splitContainer1.Panel1.BackColor = Properties.Settings.Default.color_menu;
+
+            /*
+            btnAnnadirEntrada.BackColor = Properties.Settings.Default.color_menu;
+            btnAnnadirEntrada.ForeColor = Properties.Settings.Default.color_fuente_menu;
+            btnAnnadirEntrada.Font = Properties.Settings.Default.fuente_letra;
+
+            btnAnnadirSalida.BackColor = Properties.Settings.Default.color_menu;
+            btnAnnadirSalida.ForeColor = Properties.Settings.Default.color_fuente_menu;
+            btnAnnadirSalida.Font = Properties.Settings.Default.fuente_letra;
+
+            btnAnnadirProducto.BackColor = Properties.Settings.Default.color_menu;
+            btnAnnadirProducto.ForeColor = Properties.Settings.Default.color_fuente_menu;
+            btnAnnadirProducto.Font = Properties.Settings.Default.fuente_letra;
+
+            btnVerProductos.BackColor = Properties.Settings.Default.color_menu;
+            btnVerProductos.ForeColor = Properties.Settings.Default.color_fuente_menu;
+            btnVerProductos.Font = Properties.Settings.Default.fuente_letra;
+            */
         }
     }
 }
