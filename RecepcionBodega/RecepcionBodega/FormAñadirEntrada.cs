@@ -126,6 +126,57 @@ namespace RecepcionBodega
             }
             dbconn.Close();
         }
+        /** Metodo AñadirStock, se usa para obtener la cantidad del producto y se añade al stock (tabla
+         *  producto) para poder tener el total de la cantidad del producto disponible 
+         *  Metodo realizado por Silvia.
+         */
+        public void AñadirStock()
+        {
+            float cantidad = float.Parse(txbCantidad.Text);
+            string producto = "";
+
+            try
+            {
+                Type t = cmbProducto.SelectedItem.GetType();
+                PropertyInfo prop = t.GetProperty("id_producto");
+                producto = prop.GetValue(cmbProducto.SelectedItem).ToString();
+
+                if (dbconn.State != ConnectionState.Open)
+                {
+                    dbconn.Open();
+                }
+                string consulta = "UPDATE producto SET stock = stock +" + cantidad + " WHERE id_producto =" + producto;
+                MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Close();
+               
+
+            }
+            catch (MySqlException e)
+            {
+                if (txbCantidad.Text.Contains(","))
+                {
+                    MessageBox.Show("El decimal debe introducise con un '.'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Error con la base de datos \n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
+                dbconn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error inesperado \n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dbconn.Close();
+            }
+
+            dbconn.Close();
+        }
+
+
+
         /** Metodo ComprobarFormulario, se usa para comprobar que todos los elementos introducidos
          * en el formulario tengan el formato correcto, todos los elementos seleccionados y no falte 
          * ningún dato por introduccir antes de ser enviado a la base de datos.
@@ -140,17 +191,19 @@ namespace RecepcionBodega
                 MessageBox.Show("Falta de datos, porfavor rellene todos los elementos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else if(!int.TryParse(txbCantidad.Text, out temp)){
-                MessageBox.Show("Datos erroneos, porfavor introduce una cadena de numeros (Cantidad).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if(!float.TryParse(txbCantidad.Text, out float temp)){
+                MessageBox.Show("Datos erroneos, porfavor introduce una cadena de numeros (Cantidad, Decimales usando '.' ).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
             else {
                 try
                 {
                     InsertarFormulario();
-                    MessageBox.Show("Registros introducidos correctamente.", "Inserción Entrada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Registros introducidos correctamente.", "Inserción Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AñadirStock();
                     btnAceptar.DialogResult = DialogResult.OK;
                     Limpiar();
+                   
                 }
                 catch (Exception ex)
                 {
@@ -178,7 +231,7 @@ namespace RecepcionBodega
 
             // Annadimos en una tabla nueva Registro, los resultados obtenidos 
             dbconn.Open();
-            string query = "INSERT INTO producto_entrada (id_producto_entrada,id_producto,fecha_entrada,lote,albaran,proveedor,fecha_caducidad,cantidad) VALUES( NULL , '" + producto + "' , '" + dtpFechaEntrada.Text + "' , '" + txbLote.Text + "' , '" + txbAlbaran.Text + "' , '" + txbProveedor.Text + "' , '" + dtpFechaCaducidad.Text + "' , " + txbCantidad.Text + ")";
+            string query = "INSERT INTO producto_entrada (id_producto_entrada,id_producto,fecha_entrada,lote,albaran,proveedor,fecha_caducidad,cantidad) VALUES( NULL , '" + producto + "' , '" + dtpFechaEntrada.Text + "' , '" + txbLote.Text + "' , '" + txbAlbaran.Text + "' , '" + txbProveedor.Text + "' , '" + dtpFechaCaducidad.Text + "' , " + float.Parse(txbCantidad.Text) + ")";
             MySqlCommand commandDatabase = new MySqlCommand(query, dbconn);
             commandDatabase.ExecuteNonQuery();
             dbconn.Close();

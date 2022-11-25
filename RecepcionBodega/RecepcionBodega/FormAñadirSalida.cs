@@ -65,12 +65,12 @@ namespace RecepcionBodega
             }
             catch (MySqlException e)
             {
-                MessageBox.Show("Error con la base de datos 2\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error con la base de datos \n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dbconn.Close();
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error inesperado 2\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error inesperado \n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dbconn.Close();
             }
 
@@ -113,7 +113,7 @@ namespace RecepcionBodega
             }
             catch (MySqlException e)
             {
-                MessageBox.Show("Error con la base de datos\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error con la base de datos \n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dbconn.Close();
             }
             catch (Exception e)
@@ -123,13 +123,90 @@ namespace RecepcionBodega
             }
             dbconn.Close();
         }
+        /** Metodo EliminarStock, se usa para modificar el stock (tabla productos). Para comenzar tiene que comprobar que la cantidad
+         * que vamos a quitar a stock sea menor que el total de stock y si es asi lo modificara el stock.
+       *  Metodo realizado por Silvia.
+       */
+
+       
+        public void EliminarStock()
+        {
+            float cantidadsalida = float.Parse(txbCantidad.Text);
+            float cantidadstock;
+            string producto = "";
+            try
+            {
+                Type t = cmbProducto.SelectedItem.GetType();
+                PropertyInfo prop = t.GetProperty("id_producto");
+                producto = prop.GetValue(cmbProducto.SelectedItem).ToString();
+
+                if (dbconn.State != ConnectionState.Open)
+                {
+                    dbconn.Open();
+                }
+                string consulta1 = "select stock from producto where id_producto = " + producto;
+                MySqlCommand cmd1 = new MySqlCommand(consulta1, dbconn);
+                MySqlDataReader dataReader1 = cmd1.ExecuteReader();
+                if (dataReader1.Read())
+                {
+                    cantidadstock = float.Parse(dataReader1["stock"].ToString());
+                } else
+                {
+                    cantidadstock = -1;
+                }
+                dataReader1.Close();
+                dbconn.Close();
+
+                if (cantidadstock > cantidadsalida)
+                {
+                    InsertarFormulario();
+                    MessageBox.Show("Registros introducidos correctamente.", "Inserción Salida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    string consulta2 = "UPDATE producto SET stock = stock -" + cantidadsalida + " WHERE id_producto =" + producto;
+                    dbconn.Open();
+                    MySqlCommand cmd2 = new MySqlCommand(consulta2, dbconn);
+                    MySqlDataReader dataReader2 = cmd2.ExecuteReader();
+                    dataReader2.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Stock insuficiente.", "Inserción Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+                dbconn.Close();
+                
+            }
+            catch (MySqlException e)
+            {
+                if (txbCantidad.Text.Contains(","))
+                {
+                    MessageBox.Show("El decimal debe introducise con un '.'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Error con la base de datos \n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                dbconn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error inesperado \n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dbconn.Close();
+            }
+
+            dbconn.Close();
+
+
+        }
+
         /** Metodo ComprobarFormulario, se usa para comprobar que todos los elementos introducidos
         * en el formulario tengan el formato correcto, todos los elementos seleccionados y no falte 
         * ningún dato por introduccir antes de ser enviado a la base de datos.
         * 
         *  Metodo realizado por Silvia.
         */
+        
         public void ComprobarFormulario()
+
         {
             // Comprobando cmbProducto
             if (cmbProducto.SelectedIndex == 0 || txbLote.Text == "" || txbCantidad.Text == "" || txbDestino.Text == "" || rtxbObservaciones.Text == "")
@@ -137,17 +214,16 @@ namespace RecepcionBodega
                 MessageBox.Show("Falta de datos, porfavor rellene todos los elementos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else if (!int.TryParse(txbCantidad.Text, out temp))
+            else if (!float.TryParse(txbCantidad.Text, out float temp))
             {
-                MessageBox.Show("Datos erroneos, porfavor introduce una cadena de numeros (Cantidad).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Datos erroneos, porfavor introduce una cadena de numeros (Cantidad, Decimal usando '.' ).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
             {
                 try
                 {
-                    InsertarFormulario();
-                    MessageBox.Show("Registros introducidos correctamente.", "Inserción Entrada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    EliminarStock();
                     btnAceptar.DialogResult = DialogResult.OK;
                     Limpiar();
                 }
@@ -175,7 +251,7 @@ namespace RecepcionBodega
 
             // Annadimos en una tabla nueva Registro, los resultados obtenidos 
             dbconn.Open();
-            string query = "INSERT INTO producto_salida (id_producto_salida,id_producto,fecha_salida,lote,cantidad,destino,observaciones) VALUES( NULL,'" + producto + "' , '" + dtpFechaSalida.Text + "' , '" + txbLote.Text + "' , " + txbCantidad.Text + " , '" + txbDestino.Text + "' , '"  + rtxbObservaciones.Text +"')";
+            string query = "INSERT INTO producto_salida (id_producto_salida,id_producto,fecha_salida,lote,cantidad,destino,observaciones) VALUES( NULL,'" + producto + "' , '" + dtpFechaSalida.Text + "' , '" + txbLote.Text + "' , " + float.Parse(txbCantidad.Text) + " , '" + txbDestino.Text + "' , '"  + rtxbObservaciones.Text +"')";
             MySqlCommand commandDatabase = new MySqlCommand(query, dbconn);
             commandDatabase.ExecuteNonQuery();
             dbconn.Close();
