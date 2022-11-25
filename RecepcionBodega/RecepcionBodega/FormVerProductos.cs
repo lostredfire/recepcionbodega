@@ -89,25 +89,16 @@ namespace RecepcionBodega
         // Funcion reutilizada del formulario principal realizada por Antonio
         private void LoadStyle()
         {
+            splitContainer1.Panel2.BackColor = Properties.Settings.Default.color_ventana;
             splitContainer1.Panel1.BackColor = Properties.Settings.Default.color_menu;
 
-            /*
-            btnAnnadirEntrada.BackColor = Properties.Settings.Default.color_menu;
-            btnAnnadirEntrada.ForeColor = Properties.Settings.Default.color_fuente_menu;
-            btnAnnadirEntrada.Font = Properties.Settings.Default.fuente_letra;
+            btnCerrar.Font = Properties.Settings.Default.fuente_letra;
+            lblNombre.Font = Properties.Settings.Default.fuente_letra;
+            lblStockUnidad.Font = Properties.Settings.Default.fuente_letra;
 
-            btnAnnadirSalida.BackColor = Properties.Settings.Default.color_menu;
-            btnAnnadirSalida.ForeColor = Properties.Settings.Default.color_fuente_menu;
-            btnAnnadirSalida.Font = Properties.Settings.Default.fuente_letra;
-
-            btnAnnadirProducto.BackColor = Properties.Settings.Default.color_menu;
-            btnAnnadirProducto.ForeColor = Properties.Settings.Default.color_fuente_menu;
-            btnAnnadirProducto.Font = Properties.Settings.Default.fuente_letra;
-
-            btnVerProductos.BackColor = Properties.Settings.Default.color_menu;
-            btnVerProductos.ForeColor = Properties.Settings.Default.color_fuente_menu;
-            btnVerProductos.Font = Properties.Settings.Default.fuente_letra;
-            */
+            btnCerrar.ForeColor = Properties.Settings.Default.color_fuente;
+            lblNombre.ForeColor = Properties.Settings.Default.color_fuente;
+            lblStockUnidad.ForeColor = Properties.Settings.Default.color_fuente;
         }
     }
 }

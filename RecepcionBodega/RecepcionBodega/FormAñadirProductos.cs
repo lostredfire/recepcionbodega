@@ -98,25 +98,26 @@ namespace RecepcionBodega
         // Funcion reutilizada del formulario principal realizada por Antonio
         private void LoadStyle()
         {
+            splitContainer1.Panel2.BackColor = Properties.Settings.Default.color_ventana;
             splitContainer1.Panel1.BackColor = Properties.Settings.Default.color_menu;
 
-            /*
-            btnAnnadirEntrada.BackColor = Properties.Settings.Default.color_menu;
-            btnAnnadirEntrada.ForeColor = Properties.Settings.Default.color_fuente_menu;
-            btnAnnadirEntrada.Font = Properties.Settings.Default.fuente_letra;
+            txbNombre.Font = Properties.Settings.Default.fuente_letra;
+            lblNombre.Font = Properties.Settings.Default.fuente_letra;
+            lblUnidad.Font = Properties.Settings.Default.fuente_letra;
+            txbUnidad.Font = Properties.Settings.Default.fuente_letra;
+            btnExplorar.Font = Properties.Settings.Default.fuente_letra;
+            btnAceptar.Font = Properties.Settings.Default.fuente_letra;
+            btnCancelar.Font = Properties.Settings.Default.fuente_letra;
+            btnLimpiar.Font = Properties.Settings.Default.fuente_letra;
 
-            btnAnnadirSalida.BackColor = Properties.Settings.Default.color_menu;
-            btnAnnadirSalida.ForeColor = Properties.Settings.Default.color_fuente_menu;
-            btnAnnadirSalida.Font = Properties.Settings.Default.fuente_letra;
-
-            btnAnnadirProducto.BackColor = Properties.Settings.Default.color_menu;
-            btnAnnadirProducto.ForeColor = Properties.Settings.Default.color_fuente_menu;
-            btnAnnadirProducto.Font = Properties.Settings.Default.fuente_letra;
-
-            btnVerProductos.BackColor = Properties.Settings.Default.color_menu;
-            btnVerProductos.ForeColor = Properties.Settings.Default.color_fuente_menu;
-            btnVerProductos.Font = Properties.Settings.Default.fuente_letra;
-            */
+            txbNombre.ForeColor = Properties.Settings.Default.color_fuente;
+            lblNombre.ForeColor = Properties.Settings.Default.color_fuente;
+            lblUnidad.ForeColor = Properties.Settings.Default.color_fuente;
+            txbUnidad.ForeColor = Properties.Settings.Default.color_fuente;
+            btnExplorar.ForeColor = Properties.Settings.Default.color_fuente;
+            btnAceptar.ForeColor = Properties.Settings.Default.color_fuente;
+            btnCancelar.ForeColor = Properties.Settings.Default.color_fuente;
+            btnLimpiar.ForeColor = Properties.Settings.Default.color_fuente;
         }
     }
 }
