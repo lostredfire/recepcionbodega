@@ -45,29 +45,56 @@ namespace RecepcionBodega
          * Este metodo se encarga de cargar el estilo a la aplicacion
          * 
          * Realizado por Antonio
-         * Modificado por Alvaro
          */
         private void LoadStyle()
         {
+            // Contenedores
             splitContainer1.Panel1.BackColor = Properties.Settings.Default.color_menu;
+            splitContainer1.Panel2.BackColor = Properties.Settings.Default.color_ventana;
 
-            /*
-            btnAnnadirEntrada.BackColor = Properties.Settings.Default.color_menu;
-            btnAnnadirEntrada.ForeColor = Properties.Settings.Default.color_fuente_menu;
+            // Botones menu
+            btnAnnadirEntrada.BackColor = Properties.Settings.Default.color_ventana;
+            btnAnnadirSalida.BackColor = Properties.Settings.Default.color_ventana;
+            btnAnnadirProducto.BackColor = Properties.Settings.Default.color_ventana;
+            btnVerProductos.BackColor = Properties.Settings.Default.color_ventana;
+            btnSalir.BackColor = Properties.Settings.Default.color_ventana;
+
+            btnAnnadirEntrada.ForeColor = Properties.Settings.Default.color_fuente;
+            btnAnnadirSalida.ForeColor = Properties.Settings.Default.color_fuente;
+            btnAnnadirProducto.ForeColor = Properties.Settings.Default.color_fuente;
+            btnVerProductos.ForeColor = Properties.Settings.Default.color_fuente;
+            btnSalir.ForeColor = Properties.Settings.Default.color_fuente;
+
             btnAnnadirEntrada.Font = Properties.Settings.Default.fuente_letra;
-
-            btnAnnadirSalida.BackColor = Properties.Settings.Default.color_menu;
-            btnAnnadirSalida.ForeColor = Properties.Settings.Default.color_fuente_menu;
             btnAnnadirSalida.Font = Properties.Settings.Default.fuente_letra;
-
-            btnAnnadirProducto.BackColor = Properties.Settings.Default.color_menu;
-            btnAnnadirProducto.ForeColor = Properties.Settings.Default.color_fuente_menu;
             btnAnnadirProducto.Font = Properties.Settings.Default.fuente_letra;
-
-            btnVerProductos.BackColor = Properties.Settings.Default.color_menu;
-            btnVerProductos.ForeColor = Properties.Settings.Default.color_fuente_menu;
             btnVerProductos.Font = Properties.Settings.Default.fuente_letra;
-            */
+            btnSalir.Font = Properties.Settings.Default.fuente_letra;
+
+            // Tabla principal
+            dgvTabla.Font = Properties.Settings.Default.fuente_letra;
+            dgvTabla.ForeColor = Properties.Settings.Default.color_fuente;
+
+            // Labels
+            lblTitulo.ForeColor = Properties.Settings.Default.color_fuente;
+            lblFiltros.ForeColor = Properties.Settings.Default.color_fuente;
+            lblProducto.ForeColor = Properties.Settings.Default.color_fuente;
+            lblDesde.ForeColor = Properties.Settings.Default.color_fuente;
+            lblHasta.ForeColor = Properties.Settings.Default.color_fuente;
+            lblLote.ForeColor = Properties.Settings.Default.color_fuente;
+
+            lblTitulo.Font = Properties.Settings.Default.fuente_letra;
+            lblFiltros.Font = Properties.Settings.Default.fuente_letra;
+            lblProducto.Font = Properties.Settings.Default.fuente_letra;
+            lblDesde.Font = Properties.Settings.Default.fuente_letra;
+            lblHasta.Font = Properties.Settings.Default.fuente_letra;
+            lblLote.Font = Properties.Settings.Default.fuente_letra;
+
+            // Campos de entrada
+            cmbProducto.ForeColor = Properties.Settings.Default.color_fuente;
+            dtpDesde.CalendarForeColor = Properties.Settings.Default.color_fuente;
+
+
         }
 
 
@@ -76,6 +103,7 @@ namespace RecepcionBodega
          * Por defecto va a cargar primero las entradas
          * 
          * Método realizado por Álvaro
+         * Consulta realizada por Antonio
          * 
          */
 
@@ -85,11 +113,13 @@ namespace RecepcionBodega
             try
             {
                 dbconn.Open();
-                string consulta = "SELECT e.id_producto AS id_producto, p.nombre AS producto, e.fecha_entrada AS fecha_tramite, e.lote AS lote, e.albaran AS albaran, e.proveedor AS proveedor, e.fecha_caducidad AS fecha_caducidad, e.cantidad AS cantidad, '' AS destino, '' AS observaciones " +
-                    "FROM producto_entrada e, producto p WHERE e.id_producto = p.id_producto " +
-                    "UNION " +
-                    "SELECT s.id_producto AS id_producto, p.nombre AS producto, s.fecha_salida AS fecha_tramite, s.lote AS lote, '' AS albaran, '' AS proveedor, null AS fecha_caducidad, s.cantidad AS cantidad, s.destino AS destino, s.observaciones AS observaciones " +
-                    "FROM producto_salida s, producto p WHERE s.id_producto = p.id_producto ";
+                string consulta = "SELECT * " +
+                                    "FROM (SELECT e.id_producto AS id_producto, p.nombre AS producto, e.fecha_entrada AS fecha_tramite, e.lote AS lote, e.albaran AS albaran, e.proveedor AS proveedor, e.fecha_caducidad AS fecha_caducidad, e.cantidad AS cantidad, '' AS destino, '' AS observaciones " +
+                                            "FROM producto_entrada e, producto p WHERE e.id_producto = p.id_producto " +
+                                            "UNION " +
+                                            "SELECT s.id_producto AS id_producto, p.nombre AS producto, s.fecha_salida AS fecha_tramite, s.lote AS lote, '' AS albaran, '' AS proveedor, null AS fecha_caducidad, s.cantidad AS cantidad, s.destino AS destino, s.observaciones AS observaciones " +
+                                            "FROM producto_salida s, producto p WHERE s.id_producto = p.id_producto) AS t " +
+                                    "ORDER BY fecha_tramite DESC";
                 MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -214,9 +244,14 @@ namespace RecepcionBodega
 
         }
 
+        /**
+         * Este metodo se encarga de cerrar la aplicación
+         * 
+         * Método creado por Antonio
+         */
         private void btnSalir_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
         
         
@@ -249,70 +284,59 @@ namespace RecepcionBodega
                 dbconn.Open();
 
                 string consulta = "SELECT * " +
-                    "FROM(SELECT e.id_producto AS id_producto, p.nombre AS producto, e.fecha_entrada AS fecha_tramite, e.lote AS lote, e.albaran AS albaran, e.proveedor AS proveedor, e.fecha_caducidad AS fecha_caducidad, e.cantidad AS cantidad, '' AS destino, '' AS observaciones" +
-                    "    FROM producto_entrada e, producto p WHERE e.id_producto = p.id_producto" +
-                    "    UNION " +
-                    "    SELECT s.id_producto AS id_producto, p.nombre AS producto, s.fecha_salida AS fecha_tramite, s.lote AS lote, '' AS albaran, '' AS proveedor, null AS fecha_caducidad, s.cantidad AS cantidad, s.destino AS destino, s.observaciones AS observaciones" +
-                    "    FROM producto_salida s, producto p WHERE s.id_producto = p.id_producto ) p" +
-                    "    WHERE";
+                                    "FROM (SELECT e.id_producto AS id_producto, p.nombre AS producto, e.fecha_entrada AS fecha_tramite, e.lote AS lote, e.albaran AS albaran, e.proveedor AS proveedor, e.fecha_caducidad AS fecha_caducidad, e.cantidad AS cantidad, '' AS destino, '' AS observaciones " +
+                                            "FROM producto_entrada e, producto p WHERE e.id_producto = p.id_producto " +
+                                            "UNION " +
+                                            "SELECT s.id_producto AS id_producto, p.nombre AS producto, s.fecha_salida AS fecha_tramite, s.lote AS lote, '' AS albaran, '' AS proveedor, null AS fecha_caducidad, s.cantidad AS cantidad, s.destino AS destino, s.observaciones AS observaciones " +
+                                            "FROM producto_salida s, producto p WHERE s.id_producto = p.id_producto) AS t " +
+                                    "WHERE";
+
                 if (producto.Equals("0"))
+                {
+                    consulta += " fecha_tramite >= '" + fechaDesde + "' and fecha_tramite < '" + fechaHasta + "'";
+                    if (!lote.Equals(""))
                     {
-                        consulta += " fecha_tramite >= '" + fechaDesde + "' and fecha_tramite < '" + fechaHasta + "'";
-                        if (!lote.Equals(""))
-                        {
-                            consulta += " and lote = '" + lote + "'";
+                        consulta += " and lote = '" + lote + "'";
 
-                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
-                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            dgvTabla.DataSource = dt;
+                        MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgvTabla.DataSource = dt;
 
                             
-                            dgvTabla.Columns["id_producto"].Visible = false;
-                        }
-                        else
-                        {
-                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
-                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            dgvTabla.DataSource = dt;
-
-                            
-                            dgvTabla.Columns["id_producto"].Visible = false;
-                        }
+                        dgvTabla.Columns["id_producto"].Visible = false;
                     }
                     else
                     {
-                        consulta += " id_producto = " + producto;
-                        consulta += " and fecha_tramite >= '" + fechaDesde + "' and fecha_tramite < '" + fechaHasta +"'";
-
-                        if (!lote.Equals(""))
-                        {
-                            consulta += " and lote = '" + lote + "'";
-
-                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
-                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            dgvTabla.DataSource = dt;
+                        MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgvTabla.DataSource = dt;
 
                             
-                            dgvTabla.Columns["id_producto"].Visible = false;
-                        }
-                        else
-                        {
-                            MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
-                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            dgvTabla.DataSource = dt;
-
-                            
-                            dgvTabla.Columns["id_producto"].Visible = false;
-                        }
+                        dgvTabla.Columns["id_producto"].Visible = false;
                     }
+                }
+                else
+                {
+                    consulta += " id_producto = " + producto;
+                    consulta += " and fecha_tramite >= '" + fechaDesde + "' and fecha_tramite < '" + fechaHasta +"'";
+
+                    if (!lote.Equals("")) consulta += " and lote = '" + lote + "'";
+
+                    consulta += " ORDER BY fecha_tramite DESC";
+
+                    MySqlCommand cmd = new MySqlCommand(consulta, dbconn);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dgvTabla.DataSource = dt;
+
+                            
+                    dgvTabla.Columns["id_producto"].Visible = false;
+                 }
             }
             catch (MySqlException e)
             {

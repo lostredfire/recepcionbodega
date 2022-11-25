@@ -109,7 +109,7 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(25, 520);
+            this.btnSalir.Location = new System.Drawing.Point(38, 664);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(148, 47);
             this.btnSalir.TabIndex = 4;
@@ -120,7 +120,7 @@
             // btnVerProductos
             // 
             this.btnVerProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerProductos.Location = new System.Drawing.Point(25, 339);
+            this.btnVerProductos.Location = new System.Drawing.Point(44, 367);
             this.btnVerProductos.Name = "btnVerProductos";
             this.btnVerProductos.Size = new System.Drawing.Size(148, 47);
             this.btnVerProductos.TabIndex = 3;
@@ -131,7 +131,7 @@
             // btnAnnadirProducto
             // 
             this.btnAnnadirProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnadirProducto.Location = new System.Drawing.Point(25, 286);
+            this.btnAnnadirProducto.Location = new System.Drawing.Point(44, 314);
             this.btnAnnadirProducto.Name = "btnAnnadirProducto";
             this.btnAnnadirProducto.Size = new System.Drawing.Size(148, 47);
             this.btnAnnadirProducto.TabIndex = 2;
@@ -142,7 +142,7 @@
             // btnAnnadirSalida
             // 
             this.btnAnnadirSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnadirSalida.Location = new System.Drawing.Point(25, 233);
+            this.btnAnnadirSalida.Location = new System.Drawing.Point(44, 261);
             this.btnAnnadirSalida.Name = "btnAnnadirSalida";
             this.btnAnnadirSalida.Size = new System.Drawing.Size(148, 47);
             this.btnAnnadirSalida.TabIndex = 1;
@@ -154,7 +154,7 @@
             // 
             this.ptbLogo2.Image = global::RecepcionBodega.Properties.Resources.logoIES;
             this.ptbLogo2.InitialImage = global::RecepcionBodega.Properties.Resources.logoIES;
-            this.ptbLogo2.Location = new System.Drawing.Point(14, 8);
+            this.ptbLogo2.Location = new System.Drawing.Point(38, 30);
             this.ptbLogo2.Name = "ptbLogo2";
             this.ptbLogo2.Size = new System.Drawing.Size(159, 161);
             this.ptbLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -164,7 +164,7 @@
             // btnAnnadirEntrada
             // 
             this.btnAnnadirEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnadirEntrada.Location = new System.Drawing.Point(25, 180);
+            this.btnAnnadirEntrada.Location = new System.Drawing.Point(44, 208);
             this.btnAnnadirEntrada.Name = "btnAnnadirEntrada";
             this.btnAnnadirEntrada.Size = new System.Drawing.Size(148, 47);
             this.btnAnnadirEntrada.TabIndex = 0;
@@ -185,7 +185,7 @@
             // 
             // txbLote
             // 
-            this.txbLote.Location = new System.Drawing.Point(845, 190);
+            this.txbLote.Location = new System.Drawing.Point(843, 191);
             this.txbLote.Name = "txbLote";
             this.txbLote.Size = new System.Drawing.Size(100, 20);
             this.txbLote.TabIndex = 16;
@@ -212,14 +212,14 @@
             // 
             // dtpHasta
             // 
-            this.dtpHasta.Location = new System.Drawing.Point(845, 150);
+            this.dtpHasta.Location = new System.Drawing.Point(843, 150);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpHasta.TabIndex = 11;
             // 
             // dtpDesde
             // 
-            this.dtpDesde.Location = new System.Drawing.Point(845, 102);
+            this.dtpDesde.Location = new System.Drawing.Point(842, 124);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpDesde.TabIndex = 10;
@@ -227,7 +227,7 @@
             // lblLote
             // 
             this.lblLote.AutoSize = true;
-            this.lblLote.Location = new System.Drawing.Point(798, 197);
+            this.lblLote.Location = new System.Drawing.Point(805, 198);
             this.lblLote.Name = "lblLote";
             this.lblLote.Size = new System.Drawing.Size(31, 13);
             this.lblLote.TabIndex = 9;
@@ -236,7 +236,7 @@
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(794, 156);
+            this.lblHasta.Location = new System.Drawing.Point(798, 156);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(38, 13);
             this.lblHasta.TabIndex = 8;
@@ -245,7 +245,7 @@
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(788, 109);
+            this.lblDesde.Location = new System.Drawing.Point(794, 130);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(41, 13);
             this.lblDesde.TabIndex = 7;
@@ -254,7 +254,7 @@
             // cmbProducto
             // 
             this.cmbProducto.FormattingEnabled = true;
-            this.cmbProducto.Location = new System.Drawing.Point(845, 63);
+            this.cmbProducto.Location = new System.Drawing.Point(842, 76);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(121, 21);
             this.cmbProducto.TabIndex = 6;
@@ -262,7 +262,7 @@
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(779, 63);
+            this.lblProducto.Location = new System.Drawing.Point(783, 84);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(53, 13);
             this.lblProducto.TabIndex = 5;
@@ -272,11 +272,11 @@
             // 
             this.lblFiltros.AutoSize = true;
             this.lblFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltros.Location = new System.Drawing.Point(779, 30);
+            this.lblFiltros.Location = new System.Drawing.Point(895, 30);
             this.lblFiltros.Name = "lblFiltros";
-            this.lblFiltros.Size = new System.Drawing.Size(50, 17);
+            this.lblFiltros.Size = new System.Drawing.Size(46, 17);
             this.lblFiltros.TabIndex = 2;
-            this.lblFiltros.Text = "Filtros:";
+            this.lblFiltros.Text = "Filtros";
             // 
             // dgvTabla
             // 
