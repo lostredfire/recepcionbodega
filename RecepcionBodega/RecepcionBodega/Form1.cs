@@ -234,14 +234,26 @@ namespace RecepcionBodega
             formañadirsalida.ShowDialog();
         }
 
+        /*
+         * Este metodo se encarga de cargar la ventana de Añadir productos
+         * 
+         * Realizado por Antonio
+         */
         private void btnAnnadirProducto_Click(object sender, EventArgs e)
         {
-
+            FormAñadirProductos formAnnadirProductos = new FormAñadirProductos();
+            formAnnadirProductos.ShowDialog();
         }
 
+        /*
+         * Este metodo se encarga de cargar la ventana de Ver productos
+         * 
+         * Realizado por Antonio
+         */
         private void btnVerProductos_Click(object sender, EventArgs e)
         {
-
+            FormVerProductos formVerProductos = new FormVerProductos();
+            formVerProductos.ShowDialog();
         }
 
         /**
@@ -274,6 +286,7 @@ namespace RecepcionBodega
          * Este metodo se encarga de filtrar la tabla segun los filtros que marquemos
          * 
          * Metodo realizado por Alvaro
+         * Modificado por Antonio
          * Consulta realizada por Antonio
          * 
          */
