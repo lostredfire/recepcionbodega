@@ -64,21 +64,25 @@ namespace RecepcionBodega
 
         private void dgvTabla_SelectionChanged(object sender, EventArgs e)
         {
-            lblNombre.Text = dgvTabla.CurrentRow.Cells["nombre"].Value.ToString();
-            lblStockUnidad.Text = dgvTabla.CurrentRow.Cells["stock"].Value.ToString() + " " + dgvTabla.CurrentRow.Cells["unidad"].Value.ToString();
-
-            try
+            if(dgvTabla.CurrentRow != null)
             {
-                byte[] img = (byte[])dgvTabla.CurrentRow.Cells["imagen"].Value;
-                MemoryStream ms = new MemoryStream(img);
-                ptbImgProducto.Image = Image.FromStream(ms);
+                lblNombre.Text = dgvTabla.CurrentRow.Cells["nombre"].Value.ToString();
+                lblStockUnidad.Text = dgvTabla.CurrentRow.Cells["stock"].Value.ToString() + " " + dgvTabla.CurrentRow.Cells["unidad"].Value.ToString();
 
-            }
-            catch (Exception ex)
-            {
-                string dir = Path.GetDirectoryName(Application.ExecutablePath);
-                string filename = Path.Combine(dir, @"..\..\img\nofotos.png");
-                ptbImgProducto.Image = Image.FromFile(filename);
+                try
+                {
+                    byte[] img = (byte[])dgvTabla.CurrentRow.Cells["imagen"].Value;
+                    MemoryStream ms = new MemoryStream(img);
+                    ptbImgProducto.Image = Image.FromStream(ms);
+
+                }
+                catch (Exception ex)
+                {
+                    string dir = Path.GetDirectoryName(Application.ExecutablePath);
+                    string filename = Path.Combine(dir, @"..\..\img\nofotos.png");
+                    Image imgReturn = Image.FromFile(filename);
+                    ptbImgProducto.Image = imgReturn;
+                }
             }
         }
 
