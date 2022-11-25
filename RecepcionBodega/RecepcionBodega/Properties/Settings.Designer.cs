@@ -25,7 +25,7 @@ namespace RecepcionBodega.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Corbel, 9.75pt, style=Bold")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Leelawadee, 9.75pt")]
         public global::System.Drawing.Font fuente_letra {
             get {
                 return ((global::System.Drawing.Font)(this["fuente_letra"]));

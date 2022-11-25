@@ -94,6 +94,12 @@ namespace RecepcionBodega
             cmbProducto.ForeColor = Properties.Settings.Default.color_fuente;
             dtpDesde.CalendarForeColor = Properties.Settings.Default.color_fuente;
 
+            // Botones de filtrado
+            btnFiltrar.ForeColor = Properties.Settings.Default.color_fuente;
+            btnLimpiar.ForeColor = Properties.Settings.Default.color_fuente;
+
+            btnFiltrar.Font = Properties.Settings.Default.fuente_letra;
+            btnLimpiar.Font = Properties.Settings.Default.fuente_letra;
 
         }
 

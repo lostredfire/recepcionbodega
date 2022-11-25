@@ -185,7 +185,7 @@
             // 
             // txbLote
             // 
-            this.txbLote.Location = new System.Drawing.Point(843, 191);
+            this.txbLote.Location = new System.Drawing.Point(852, 191);
             this.txbLote.Name = "txbLote";
             this.txbLote.Size = new System.Drawing.Size(100, 20);
             this.txbLote.TabIndex = 16;
@@ -212,14 +212,14 @@
             // 
             // dtpHasta
             // 
-            this.dtpHasta.Location = new System.Drawing.Point(843, 150);
+            this.dtpHasta.Location = new System.Drawing.Point(852, 150);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpHasta.TabIndex = 11;
             // 
             // dtpDesde
             // 
-            this.dtpDesde.Location = new System.Drawing.Point(842, 124);
+            this.dtpDesde.Location = new System.Drawing.Point(851, 124);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpDesde.TabIndex = 10;
@@ -227,7 +227,7 @@
             // lblLote
             // 
             this.lblLote.AutoSize = true;
-            this.lblLote.Location = new System.Drawing.Point(805, 198);
+            this.lblLote.Location = new System.Drawing.Point(799, 198);
             this.lblLote.Name = "lblLote";
             this.lblLote.Size = new System.Drawing.Size(31, 13);
             this.lblLote.TabIndex = 9;
@@ -236,7 +236,7 @@
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(798, 156);
+            this.lblHasta.Location = new System.Drawing.Point(792, 156);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(38, 13);
             this.lblHasta.TabIndex = 8;
@@ -245,7 +245,7 @@
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(794, 130);
+            this.lblDesde.Location = new System.Drawing.Point(788, 130);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(41, 13);
             this.lblDesde.TabIndex = 7;
@@ -254,7 +254,7 @@
             // cmbProducto
             // 
             this.cmbProducto.FormattingEnabled = true;
-            this.cmbProducto.Location = new System.Drawing.Point(842, 76);
+            this.cmbProducto.Location = new System.Drawing.Point(851, 76);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(121, 21);
             this.cmbProducto.TabIndex = 6;
@@ -262,7 +262,7 @@
             // lblProducto
             // 
             this.lblProducto.AutoSize = true;
-            this.lblProducto.Location = new System.Drawing.Point(783, 84);
+            this.lblProducto.Location = new System.Drawing.Point(777, 84);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(53, 13);
             this.lblProducto.TabIndex = 5;
