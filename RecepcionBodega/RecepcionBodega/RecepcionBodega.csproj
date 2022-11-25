@@ -159,6 +159,7 @@
   <ItemGroup>
     <Content Include="img\logoDptoIndAli.png" />
     <Content Include="img\logoIES.png" />
+    <Content Include="img\nofotos.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

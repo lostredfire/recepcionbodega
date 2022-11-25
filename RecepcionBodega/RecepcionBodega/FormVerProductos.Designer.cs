@@ -62,14 +62,15 @@
             this.splitContainer1.Panel2.Controls.Add(this.lblNombre);
             this.splitContainer1.Panel2.Controls.Add(this.ptbImgProducto);
             this.splitContainer1.Panel2.Controls.Add(this.dgvTabla);
-            this.splitContainer1.Size = new System.Drawing.Size(782, 464);
-            this.splitContainer1.SplitterDistance = 184;
+            this.splitContainer1.Size = new System.Drawing.Size(653, 464);
+            this.splitContainer1.SplitterDistance = 173;
             this.splitContainer1.TabIndex = 0;
             // 
             // btnCerrar
             // 
+            this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(12, 385);
+            this.btnCerrar.Location = new System.Drawing.Point(12, 405);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(148, 47);
             this.btnCerrar.TabIndex = 17;
@@ -82,7 +83,7 @@
             this.ptbLogo2.InitialImage = global::RecepcionBodega.Properties.Resources.logoIES;
             this.ptbLogo2.Location = new System.Drawing.Point(12, 12);
             this.ptbLogo2.Name = "ptbLogo2";
-            this.ptbLogo2.Size = new System.Drawing.Size(159, 161);
+            this.ptbLogo2.Size = new System.Drawing.Size(148, 161);
             this.ptbLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo2.TabIndex = 16;
             this.ptbLogo2.TabStop = false;
@@ -91,7 +92,7 @@
             // 
             this.lblStockUnidad.AutoSize = true;
             this.lblStockUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockUnidad.Location = new System.Drawing.Point(474, 215);
+            this.lblStockUnidad.Location = new System.Drawing.Point(305, 223);
             this.lblStockUnidad.Name = "lblStockUnidad";
             this.lblStockUnidad.Size = new System.Drawing.Size(41, 16);
             this.lblStockUnidad.TabIndex = 21;
@@ -101,7 +102,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(474, 188);
+            this.lblNombre.Location = new System.Drawing.Point(305, 192);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(56, 16);
             this.lblNombre.TabIndex = 19;
@@ -111,9 +112,9 @@
             // 
             this.ptbImgProducto.Image = global::RecepcionBodega.Properties.Resources.logoIES;
             this.ptbImgProducto.InitialImage = global::RecepcionBodega.Properties.Resources.logoIES;
-            this.ptbImgProducto.Location = new System.Drawing.Point(423, 12);
+            this.ptbImgProducto.Location = new System.Drawing.Point(308, 12);
             this.ptbImgProducto.Name = "ptbImgProducto";
-            this.ptbImgProducto.Size = new System.Drawing.Size(159, 161);
+            this.ptbImgProducto.Size = new System.Drawing.Size(148, 161);
             this.ptbImgProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbImgProducto.TabIndex = 18;
             this.ptbImgProducto.TabStop = false;
@@ -133,15 +134,16 @@
             this.dgvTabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTabla.Size = new System.Drawing.Size(279, 440);
             this.dgvTabla.TabIndex = 2;
+            this.dgvTabla.SelectionChanged += new System.EventHandler(this.dgvTabla_SelectionChanged);
             // 
             // FormVerProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 464);
+            this.ClientSize = new System.Drawing.Size(653, 464);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormVerProductos";
-            this.Text = "FormVerProductos";
+            this.Text = "Ver Productos";
             this.Load += new System.EventHandler(this.FormVerProductos_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
