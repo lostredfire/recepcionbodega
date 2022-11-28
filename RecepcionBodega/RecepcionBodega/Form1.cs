@@ -39,7 +39,7 @@ namespace RecepcionBodega
             CargarCombo();
             lblTitulo.Text = "Entradas de Productos Enológicos";
             dtpDesde.Value = new DateTime(2022, 9, 1);
-            dtpHasta.Value = dtpHasta.Value.AddDays(1);
+            dtpHasta.Value = DateTime.Now;
         }
         /*
          * Este metodo se encarga de cargar el estilo a la aplicacion
@@ -284,7 +284,8 @@ namespace RecepcionBodega
             Type t = cmbProducto.SelectedItem.GetType();
             PropertyInfo prop = t.GetProperty("id_producto");
             String idProducto = prop.GetValue(cmbProducto.SelectedItem).ToString();
-            filtrarTabla(idProducto, dtpDesde.Value.ToString("yyyy-MM-dd"), dtpHasta.Value.ToString("yyyy-MM-dd"), txbLote.Text);  
+            String fechaHasta = dtpHasta.Value.AddDays(1).ToString("yyyy-MM-dd");
+            filtrarTabla(idProducto, dtpDesde.Value.ToString("yyyy-MM-dd"), fechaHasta, txbLote.Text);  
         }
 
 
@@ -322,7 +323,10 @@ namespace RecepcionBodega
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         dgvTabla.DataSource = dt;
-
+                        if(dt.Rows.Count == 0)
+                        {
+                            MessageBox.Show("El lote que has introducido está mal o no existe", "¡Cuidado!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                             
                         dgvTabla.Columns["id_producto"].Visible = false;
                     }
@@ -343,7 +347,8 @@ namespace RecepcionBodega
                     consulta += " id_producto = " + producto;
                     consulta += " and fecha_tramite >= '" + fechaDesde + "' and fecha_tramite < '" + fechaHasta +"'";
 
-                    if (!lote.Equals("")) consulta += " and lote = '" + lote + "'";
+                    if (!lote.Equals(""))
+                        consulta += " and lote = '" + lote + "'";
 
                     consulta += " ORDER BY fecha_tramite DESC";
 
@@ -352,8 +357,11 @@ namespace RecepcionBodega
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     dgvTabla.DataSource = dt;
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("El lote que has introducido está mal o no existe", "¡Cuidado!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
 
-                            
                     dgvTabla.Columns["id_producto"].Visible = false;
                  }
             }
@@ -392,7 +400,6 @@ namespace RecepcionBodega
             cmbProducto.SelectedIndex = 0;
             dtpDesde.Value = new DateTime(2022, 9, 1);
             dtpHasta.Value = DateTime.Now;
-            dtpHasta.Value = dtpHasta.Value.AddDays(1);
             txbLote.Text = "";
 
         }

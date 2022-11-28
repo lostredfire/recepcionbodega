@@ -358,5 +358,10 @@ namespace RecepcionBodega
         {
             CargarFormatoCantidad();
         }
+
+        private void FormAñadirSalida_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
     }
 }
